@@ -1,91 +1,21 @@
-"""""""""""""""""""""""
-"    Rocky's .vimrc   "
-" (C) 2010 Rocky Meza "
-"""""""""""""""""""""""
-
-""" basic
-set nocompatible
-set shm=I
-set bs=indent,eol,start
-nmap <F1> <Esc>
-imap <F1> <Esc>
-
-" pathogen stuff (must be before filetype stuff)
-filetype off
-call pathogen#runtime_append_all_bundles()
-
-" filetype stuff
-filetype on
-filetype plugin on
-filetype indent on
-
-" for sup
-au BufRead *-sup.*        set ft=mail
-au BufRead *.shpaml       so ~/.vim/ftplugin/shpaml.vim
-
-
-""" look
-" theme
-syntax enable
 set number
-colors zenburn|+
-
-"statusline
-set showmode
-set statusline=%<\ %n:%f\ %m%r%y%=%-35.(line:\ %l\ of\ %L,\ col:\ %c%V\ (%P)%)\ %{fugitive#statusline()}
-set showcmd
-
-" tabs
+set nocompatible
 set tabstop=2
+set softtabstop=2
 set shiftwidth=2
-set expandtab
-set smartindent
 set autoindent
-
-" searching
-set hlsearch
+set smartindent
+set expandtab
+set vb t_vb=
 set incsearch
-
-" clear search
-nmap <F3> :noh<RETURN>
-
-" line breaks
-set showbreak=">"
-
-" folding
-set foldmethod=marker
-
-""" feel
-" mouse
+colors zenburn|+
+syntax on
+inoremap <Up> <NOP>
+inoremap <Down> <NOP>
+inoremap <Left> <NOP>
+inoremap <Right> <NOP>
+noremap <Up> <NOP>
+noremap <Down> <NOP>
+noremap <Left> <NOP>
+noremap <Right> <NOP>
 set mouse=a
-
-"" mappings
-" for saving files more quickly
-cmap W w
-
-" remap ZZ for safer saving
-nmap ZZ :q<RETURN>
-
-" for editing vimrc
-nmap <Leader>s :source $MYVIMRC
-nmap <Leader>v :e $MYVIMRC
-nmap <Leader>r :exec ReloadAllSnippets()
-
-" undo
-set undodir=~/.vim/undodir
-set undofile
-set undolevels=1000
-set undoreload=10000
-
-" tab bindings
-imap <S-Tab> <ESC>v<<<ESC>i
-vmap <Tab> >gv
-vmap <S-Tab> <gv
-
-" ack.vim
-let g:ackprg="ack-grep -H --nocolor --nogroup --column"
-map <Leader>a :Ack
-
-" wildmenu
-set wildmenu
-set wildignore=node_modules,*.old,*.swo,*.swp

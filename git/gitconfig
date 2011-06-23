@@ -1,38 +1,39 @@
-#-------------------------------------------------------
-#   gitconfig - Overview
-#-------------------------------------------------------
-#   Template for .gitconfig options.  Notice that username,
-#   email, and global gitignore file are not set here.
-#   Instead, dotfiles copies this content into a static
-#   .gitconfig file and then prompts the user to set
-#   that machine/account-specific information.
-
+[user]
+	name = Aaron Merriam
+	email = amerriam@fusionbox.com
+[color]
+	ui = auto
+	diff = auto
+	branch = auto
+	status = auto
+	fetch = auto
+	pull = auto
+	push = auto
+	merge = auto
+	pager = true
 [alias]
+# aliases
+	ci = commit
+	st = status
+	br = branch
+	co = checkout
+	ls = ls-files
+# super-powered
 	aliases = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\t=> \\2/' | sort
 	all = add -A
 	amend = !git log -n 1 --pretty=tformat:%s%n%n%b | git commit -F - --amend
-	ci = commit
-	co = checkout
-	ftp = !~/.zsh.d/functions.d/git-ftp.py
 	ignore = !([ ! -e .gitignore ] && touch .gitignore) | echo $1 >>.gitignore
 	lg = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Cblue (%cn)%Creset' --abbrev-commit --date=relative
 	mg = merge
 	newbr = !sh -c 'git branch $1 && git push origin $1 && git branch -f $1 origin/$1 && git checkout $1' -
 	pp = !git pull -- && git push --
 	rmbr = !sh -c 'git branch -D $1 && git push origin :$1' -
-	rmdel = !git ls-files -d | sed 's/ /\\\\ /' | xargs git rm --ignore-unmatch
-	st = status
+	rmdel = !git ls-files -d | xargs git rm --ignore-unmatch
 	undo = !git reset --hard && git rmdel && git clean -fq
 	unstage = reset HEAD --
 	unstash = !git stash show -p | git apply -R
 	who = !git shortlog -s -- | sort -r
 [push]
 	default = matching
-[color]
-	pager = true
-	ui = true
-[user]
-	name = Rocky Meza
-	email = rocky@fusionbox.com
 [core]
-	excludesfile = /home/rocky/projects/dotfiles/git/gitignore
+	excludesfile = /Users/aaron/.gitignore
