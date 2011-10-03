@@ -1,3 +1,4 @@
 *.tmproj
 *.swp
 *.pyc
+*/settings_local.py
