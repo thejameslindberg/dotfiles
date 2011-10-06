@@ -10,7 +10,7 @@ if __name__ == '__main__':
 
   FILES = (
     (os.path.isfile, ('vimrc', 'profile', 'gitignore')),
-    (os.path.isdir, ('vim',)),
+    (os.path.isdir, ('vim', 'sh')),
     )
   stamp = int(time.time())
 

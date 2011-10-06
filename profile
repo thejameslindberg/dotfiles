@@ -4,7 +4,7 @@ alias fbmvc="./fbmvc"
 alias wimp="curl -L automation.whatismyip.com/n09230945.asp"
 alias dba="mysql --user=root --password=fb3141"
 EDITOR="mvim -v"; export EDITOR
-SHDIR=~/Sites/sh/
+SHDIR=~/.sh/
 source $SHDIR/profile
 # Add paths for standard brew install directories
 PATH=/usr/local/bin:/usr/local/share/python:$PATH
