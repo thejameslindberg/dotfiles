@@ -1,0 +1,7 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =5
+let g:netrw_dirhist_1='/home/gavin/.vim'
+let g:netrw_dirhist_2='/var/sites/togethermd.com'
+let g:netrw_dirhist_3='/var/sites/togethermd.com/encode_archived_event/mkdir'
+let g:netrw_dirhist_4='/var/sites/togethermd.com/com/fusionbox/mvc'
+let g:netrw_dirhist_5='/home/gavin/.ion3'
